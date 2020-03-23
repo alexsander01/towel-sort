@@ -1,10 +1,16 @@
 
-// You should implement your task here.
 
-module.exports = function towelSort (matrix) {
-  if (!matrix) return [];
-  return matrix.reduce((res, arr, i) => {
-      arr = i % 2 === 1 ? arr.reverse() : arr;
-      return res.concat(arr);
-  }, []);
-};
+// You should implement your task here.
+module.exports = function towelSort(matrix) {
+  if (matrix === undefined) {
+      return []
+  }
+  let result = matrix.reduce((acum, el, index) => {
+      if (index % 2 == 0) {
+          return [...acum, ...el]
+      } else {
+          return [...acum, ...el.reverse()]
+      }
+  }, [])
+  return result
+}
